@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@layer components {
+  .container {
+    @apply mx-auto px-5 lg:px-12;
+  }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  font-family: cursive;
+}
+
+.loader {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  animation-fill-mode: both;
+  animation: bblFadInOut 1.8s infinite ease-in-out;
+  color: #00bc7d;
+  font-size: 7px;
+  position: relative;
+  text-indent: -9999em;
+  transform: translateZ(0);
+  animation-delay: -0.16s;
+}
+
+.loader::before {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  animation-fill-mode: both;
+  animation: bblFadInOut 1.8s infinite ease-in-out;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -3.5em;
+  animation-delay: -0.32s;
+}
+
+.loader::after {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  animation-fill-mode: both;
+  animation: bblFadInOut 1.8s infinite ease-in-out;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 3.5em;
+}
+
+@keyframes bblFadInOut {
+  0%, 80%, 100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
